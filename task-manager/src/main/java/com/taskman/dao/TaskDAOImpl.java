@@ -13,7 +13,16 @@ public class TaskDAOImpl implements TaskDAO {
     public List<Task> getAll() {
         List<Task> list = new ArrayList<>();
 
-        String sql = "SELECT * FROM tasks ORDER BY id DESC";
+        String sql = """
+            SELECT t.*, 
+                c.name AS category_name, 
+                p.name AS project_name
+            FROM tasks t
+            LEFT JOIN categories c ON t.category_id = c.id
+            LEFT JOIN projects p ON t.project_id = p.id
+            ORDER BY t.id DESC
+        """;
+
 
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);
@@ -30,7 +39,9 @@ public class TaskDAOImpl implements TaskDAO {
                 t.setProjectId((Integer) rs.getObject("project_id"));
                 t.setCategoryId((Integer) rs.getObject("category_id"));
                 t.setCreatedBy((Integer) rs.getObject("created_by"));
-
+                t.setCategoryName(rs.getString("category_name"));
+                t.setProjectName(rs.getString("project_name"));
+                
                 list.add(t);
             }
 

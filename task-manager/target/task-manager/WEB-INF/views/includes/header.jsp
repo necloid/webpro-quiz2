@@ -9,7 +9,9 @@
 <nav class="bg-blue-600 text-white p-4">
     <div class="container mx-auto">
         <a href="<c:url value='/tasks' />" class="font-semibold">Task Manager</a>
-
+        <a href="<c:url value='/tasks'/>">Tasks</a>
+        <a href="<c:url value='/projects'/>">Projects</a>
+        <a href="<c:url value='/categories'/>">Categories</a>
         <c:if test="${not empty sessionScope.username}">
             <span class="ml-6">Hi, ${sessionScope.username}</span>
             <a href="<c:url value='/logout' />" class="ml-4 underline">Logout</a>

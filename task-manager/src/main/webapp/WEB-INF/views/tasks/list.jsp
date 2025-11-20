@@ -13,6 +13,8 @@
 <th>Status</th>
 <th>Priority</th>
 <th>Due</th>
+<th>Category</th>
+<th>Project</th>
 <th>Actions</th>
 
 <c:forEach var="t" items="${tasks}">
@@ -21,6 +23,8 @@
     <td>${t.status}</td>
     <td>${t.priority}</td>
     <td>${t.dueDate}</td>
+    <td>${t.categoryName}</td>
+    <td>${t.projectName}</td>
     <td>
         <a href="<c:url value='/tasks/edit?id=${t.id}' />">Edit</a>
         <a href="<c:url value='/tasks/delete?id=${t.id}' />"

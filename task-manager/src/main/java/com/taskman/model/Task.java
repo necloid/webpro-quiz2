@@ -8,6 +8,8 @@ public class Task {
     private String priority;
     private String dueDate;
     private String status;
+    private String categoryName;
+    private String projectName;
     private Integer projectId;
     private Integer categoryId;
     private Integer createdBy;
@@ -39,4 +41,21 @@ public class Task {
 
     public Integer getCreatedBy() { return createdBy; }
     public void setCreatedBy(Integer createdBy) { this.createdBy = createdBy; }
+
+    public String getCategoryName() {
+    return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
 }
